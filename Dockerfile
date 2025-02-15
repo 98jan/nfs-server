@@ -10,4 +10,6 @@ RUN set -eu && apk add --no-cache nfs-utils
 EXPOSE 2049
 
 COPY nfs-server /usr/local/bin
+RUN chmod +x /usr/local/bin/nfs-server
+
 ENTRYPOINT ["/usr/local/bin/nfs-server"]
