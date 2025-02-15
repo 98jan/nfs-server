@@ -42,7 +42,7 @@ jobs:
       - name: Docker meta for public images
         if: ${{ fromJSON(env.PUSH) }}
         id: docker_meta_public
-        uses: crazy-max/ghaction-docker-meta@v1
+        uses: crazy-max/ghaction-docker-meta@v5
         with:
           images: |
             ghcr.io/${{ env.DOCKER_IMAGE_NAME }}
