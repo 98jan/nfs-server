@@ -5,11 +5,7 @@ ENV LANG=en_US.utf8
 ENV NFS_SERVER_DEBUG="0"
 ENV NFS_SERVER_ALLOWED_CLIENTS="172.16.0.0/12"
 
-RUN <<EOF
-    set -eu
-
-    apk add --no-cache nfs-utils
-EOF
+RUN set -eu && apk add --no-cache nfs-utils
 
 EXPOSE 2049
 
