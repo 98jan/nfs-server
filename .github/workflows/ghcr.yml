@@ -53,6 +53,8 @@ jobs:
             type=semver,pattern={{major}}.{{minor}}
             # edge images
             type=edge,branch=main
+            # schedule (nightly) images
+            type=schedule,pattern=nightly
       - name: Build and push Docker image
         if: ${{ fromJSON(env.PUSH) }}
         uses: docker/build-push-action@v6
