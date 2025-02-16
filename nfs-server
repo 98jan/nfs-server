@@ -4,7 +4,7 @@ set -eu
 set -o pipefail
 
 allowed_clients=$NFS_SERVER_ALLOWED_CLIENTS
-export_options="rw,sync,root_squash,no_subtree_check,fsid=0,insecure"
+export_options=$NFS_SERVER_EXPORT_OPTIONS
 
 data_dir=/mnt/data
 if [ ! -d "$data_dir" ]; then
@@ -19,8 +19,8 @@ exportfs -rv
 nfsd_debug_opt=
 mountd_debug_opt=
 if [ $NFS_SERVER_DEBUG -eq 1 ]; then
-    nfsd_debug_opt="-d"
-    mountd_debug_opt="-d all"
+    nfsd_debug_opt=$NFS_SERVER_NFSD_DEBUG_OPT
+    mountd_debug_opt=$NFS_SERVER_MOUNTD_DEBUG_OPT
 fi
 
 mount -t nfsd nfsd /proc/fs/nfsd

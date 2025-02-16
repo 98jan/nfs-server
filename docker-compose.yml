@@ -1,0 +1,8 @@
+services:
+  nfs-server:
+    image: ghcr.io/98jan/nfs-server:latest
+    ports:
+      - "2049:2049"
+    privileged: true
+    volumes:
+      - ./data:/mnt/data:rw
