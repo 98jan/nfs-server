@@ -22,7 +22,7 @@ jobs:
     steps:
       # Setup Docker Environment
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Cache
         uses: actions/cache@v4
         with:
